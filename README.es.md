@@ -9,9 +9,11 @@ Posicionamiento, textos localizados, guion de capturas y pendientes de App Store
 Abre `Build/Products/Release/Free RAM Mac.app`. Al arrancar aparece el icono con el porcentaje de RAM en uso en la barra, sin abrir paneles ni recuperar memoria automáticamente.
 
 - **Clic principal en el chip de la barra:** intenta recuperar memoria purgable silenciosamente, sin abrir panel ni informe. El porcentaje sigue mostrando mediciones del sistema, también durante la recuperación. Otro clic durante una solicitud activa no inicia otra.
-- **Clic secundario o Control-clic:** abre las opciones para consultar detalles de memoria, ayuda y salir.
+- **Clic secundario o Control-clic:** abre las opciones para consultar detalles de memoria, activar o desactivar el inicio de sesión, ver la ayuda y salir.
 
-La app no se añade al inicio de sesión. Lee los contadores del kernel cada dos segundos, también con el panel cerrado, y al comenzar y terminar la recuperación. Solo hay un temporizador; no ejecuta procesos auxiliares para medir.
+Por defecto la app no se añade al inicio de sesión. Si lo quieres, activa **Abrir al iniciar sesión** en el menú del clic secundario: usa `SMAppService` de Apple (sin helper ni LaunchAgent). Si macOS pide aprobación, la app te lleva a Ajustes del Sistema → General → Elementos de inicio. Vuelve a pulsarlo para desactivarlo.
+
+Lee los contadores del kernel cada dos segundos, también con el panel cerrado, y al comenzar y terminar la recuperación. Solo hay un temporizador; no ejecuta procesos auxiliares para medir.
 
 Las consultas opcionales de swap y presión se hacen mientras el panel de detalles está abierto; al abrirlo se actualizan de inmediato. Con el panel cerrado, la barra continúa leyendo el porcentaje cada dos segundos.
 

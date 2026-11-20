@@ -6,3 +6,5 @@ xcrun swiftc -swift-version 6 -strict-concurrency=complete -O FreeRAMMac/MemoryM
 Build/Checks/MemoryMetricsChecks
 xcrun swiftc -swift-version 6 -strict-concurrency=complete -O FreeRAMMac/RecoveryService.swift Tests/RecoveryChecks.swift -o Build/Checks/RecoveryChecks
 Build/Checks/RecoveryChecks
+xcrun swiftc -swift-version 6 -strict-concurrency=complete -O FreeRAMMac/LoginItem.swift Tests/LoginItemChecks.swift -o Build/Checks/LoginItemChecks
+Build/Checks/LoginItemChecks

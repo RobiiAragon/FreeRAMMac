@@ -12,6 +12,7 @@
 		200000000000000000000003 /* MemoryMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000003 /* MemoryMetrics.swift */; };
 		200000000000000000000004 /* RecoveryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000004 /* RecoveryService.swift */; };
 		200000000000000000000005 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000005 /* MenuBarView.swift */; };
+		200000000000000000000006 /* LoginItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000006 /* LoginItem.swift */; };
 		200000000000000000000010 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000010 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -21,6 +22,7 @@
 		100000000000000000000003 /* MemoryMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryMetrics.swift; sourceTree = "<group>"; };
 		100000000000000000000004 /* RecoveryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryService.swift; sourceTree = "<group>"; };
 		100000000000000000000005 /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
+		100000000000000000000006 /* LoginItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItem.swift; sourceTree = "<group>"; };
 		100000000000000000000010 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		100000000000000000000011 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		100000000000000000000012 /* Free RAM Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Free RAM Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +57,7 @@
 				100000000000000000000003 /* MemoryMetrics.swift */,
 				100000000000000000000004 /* RecoveryService.swift */,
 				100000000000000000000005 /* MenuBarView.swift */,
+				100000000000000000000006 /* LoginItem.swift */,
 				100000000000000000000010 /* Assets.xcassets */,
 				100000000000000000000011 /* Info.plist */,
 			);
@@ -144,6 +147,7 @@
 				200000000000000000000003 /* MemoryMetrics.swift in Sources */,
 				200000000000000000000004 /* RecoveryService.swift in Sources */,
 				200000000000000000000005 /* MenuBarView.swift in Sources */,
+				200000000000000000000006 /* LoginItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,6 +21,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
     private let idleImage = NSImage(systemSymbolName: "memorychip", accessibilityDescription: "Free RAM Mac")
     private let busyImage = NSImage(systemSymbolName: "memorychip.fill", accessibilityDescription: "Free RAM Mac")
     private let monitor = MemoryMonitor()
+    private let loginItem = LoginItem()
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         NSApp.setActivationPolicy(.accessory)
@@ -128,6 +129,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
         menu.addItem(menuItem("Ver detalles", action: #selector(showPopover)))
         menu.addItem(menuItem("Recuperar memoria purgable", action: #selector(recoverFromUserClick), enabled: !monitor.isRecovering))
         menu.addItem(.separator())
+        let login = loginItem.state
+        let loginMenuItem = menuItem(login.menuTitle, action: #selector(toggleLoginItem),
+                                     enabled: login != .unavailable)
+        loginMenuItem.state = login.isChecked ? .on : .off
+        menu.addItem(loginMenuItem)
         menu.addItem(menuItem("Cómo funciona…", action: #selector(showHelp)))
         menu.addItem(.separator())
         menu.addItem(menuItem("Salir de Free RAM Mac", action: #selector(quit), enabled: !monitor.isRecovering))
@@ -141,6 +147,26 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
         item.target = self
         item.isEnabled = enabled
         return item
+    }
+
+    @objc private func toggleLoginItem() {
+        let target = loginItem.state.nextEnabled
+        do {
+            if try loginItem.setEnabled(target) == .requiresApproval {
+                let alert = NSAlert()
+                alert.messageText = "Falta tu aprobación"
+                alert.informativeText = "macOS registró Free RAM Mac, pero debes permitirla en Ajustes del Sistema → General → Elementos de inicio."
+                alert.addButton(withTitle: "Abrir Ajustes")
+                alert.addButton(withTitle: "Más tarde")
+                NSApp.activate(ignoringOtherApps: true)
+                if alert.runModal() == .alertFirstButtonReturn { loginItem.openSystemSettings() }
+            }
+        } catch {
+            let alert = NSAlert(error: error)
+            alert.messageText = target ? "No se pudo activar el inicio de sesión" : "No se pudo desactivar el inicio de sesión"
+            NSApp.activate(ignoringOtherApps: true)
+            alert.runModal()
+        }
     }
 
     @objc private func showHelp() {
