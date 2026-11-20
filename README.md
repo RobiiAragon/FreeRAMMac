@@ -26,7 +26,8 @@
 - 📊 **RAM at a glance** — estimated memory usage as a percentage in the menu bar, refreshed every two seconds with monospaced digits so it never jitters.
 - 🧹 **One quiet click** — a primary click asks macOS to discard *purgeable* memory in the background. No window, no report, no programs closed.
 - 🔍 **Details when you need them** — a secondary click (or Control‑click) opens a panel with memory pressure, estimated file cache, wired, compressed, purgeable and swap.
-- 🪶 **Featherweight** — a single timer, no helper processes, no Dock icon, no login item, no password prompts, no network access.
+- 🪶 **Featherweight** — a single timer, no helper processes, no Dock icon, no password prompts, no network access.
+- 🚀 **Optional launch at login** — off by default. Turn on **Abrir al iniciar sesión** in the secondary‑click menu; it uses Apple's `SMAppService` (no helper, no LaunchAgent plist). If macOS asks for approval, the app takes you to System Settings → Login Items.
 - 🔒 **Honest by design** — no fake "freed 4 GB!" animations. Readings come straight from kernel counters, and the app is upfront when there is nothing to purge.
 
 > [!NOTE]
@@ -107,7 +108,7 @@ The Release build is a universal (arm64 + x86_64) binary. Verified on macOS 27 w
 Tools/check.sh
 ```
 
-Validates formulas, overlaps, overflow handling, real kernel readings and an **actual** global purge request, using a self‑owned purgeable page and a small private control page (no pressure, no privileges). Results: [Notes/Validation.md](Notes/Validation.md).
+Validates formulas, overlaps, overflow handling, real kernel readings and an **actual** global purge request, using a self‑owned purgeable page and a small private control page (no pressure, no privileges), plus the login‑item state mapping (nothing is registered). CI runs the same script on every pull request. Results: [Notes/Validation.md](Notes/Validation.md).
 
 ## Project layout
 
@@ -122,7 +123,7 @@ Notes/        Architecture, metrics, recovery and validation notes
 
 - [ ] English localization
 - [ ] Developer ID signing and notarization
-- [ ] Optional launch at login
+- [x] Optional launch at login
 
 ## License
 
